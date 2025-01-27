@@ -10,6 +10,20 @@
 #     app: guestbook-ui
 
     
+# apiVersion: v1
+# kind: Service
+# metadata:
+#   name: guestbook-ui
+# spec:
+#   selector:
+#     app: guestbook-ui
+#   ports:
+#     - protocol: TCP
+#       port: 80
+#       targetPort: 80
+#   type: LoadBalancer 
+
+  
 apiVersion: v1
 kind: Service
 metadata:
@@ -21,4 +35,5 @@ spec:
     - protocol: TCP
       port: 80
       targetPort: 80
-  type: LoadBalancer 
+      nodePort: 30080  # Use NodePort 30080 (you can choose any available port in the range 30000-32767)
+  type: NodePort
